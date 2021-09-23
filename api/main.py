@@ -1,7 +1,9 @@
 import requests
 import os
 from flask import Flask, request
-#Enable CORS
+# Enable CORS
+# pip install flask-cors
+
 from flask_cors import CORS
 from dotenv import load_dotenv
 
@@ -16,8 +18,9 @@ if not UNSPLASH_KEY:  # If key is empty
         "Please create .env.local file and insert UNSPLASH_KEY")
 app = Flask(__name__)
 CORS(app)
-#Enable debug mode
+# Enable debug mode
 app.config["DEBUG"] = DEBUG
+
 
 @app.route("/new-image")
 def new_image():
