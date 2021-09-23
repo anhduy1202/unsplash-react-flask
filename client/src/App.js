@@ -6,17 +6,15 @@ import ImageCard from './Components/ImageCard';
 import Search from './Components/Search';
 import Welcome from './Components/Welcome';
 
-const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
+// const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
+const API_URL = process.env.REACT_APP_API_URL || 'http://192.168.1.27:5050';
 
 function App() {
   const [word, setWord] = useState('');
   const [images, setImages] = useState([]);
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-
-    fetch(
-      `https://api.unsplash.com/photos/random?query=${word}&client_id=${UNSPLASH_KEY}`
-    )
+    fetch(`${API_URL}/new-image?query=${word}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
