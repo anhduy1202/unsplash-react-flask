@@ -7,7 +7,7 @@ import Search from './Components/Search';
 import Welcome from './Components/Welcome';
 
 // const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
-const API_URL = process.env.REACT_APP_API_URL || 'http://192.168.1.27:5050';
+const API_URL = process.env.REACT_APP_API_URL || 'http://192.168.1.25:5050';
 
 function App() {
   const [word, setWord] = useState('');
