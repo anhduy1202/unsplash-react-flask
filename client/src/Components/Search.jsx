@@ -18,8 +18,7 @@ const Search = (props) => {
               </Col>
               <Col>
                 <Button variant="primary" type="submit">
-                  {' '}
-                  Search{' '}
+                  Search Images
                 </Button>
               </Col>
             </Form.Row>

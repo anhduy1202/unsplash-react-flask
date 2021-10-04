@@ -4,8 +4,35 @@ services:
     build: ./client
     ports: 
       - '3000:3000'
+    volumes: #make volume to map local folder to container
+      - /app/node_modules
+      - ./client:/app
+    environment: #Make change reflect immidiately
+      - CHOKIDAR_USEPOLLING=true
   api:
     build: ./api
     ports:
       - '5050:5050'
-  
+    volumes:
+      - ./api:/app
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: dbpassword
+    volumes:
+      - mongodb_data:/data/db
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: dbpassword
+    depends_on:
+      - mongo
+volumes:
+  mongodb_data: 

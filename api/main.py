@@ -31,7 +31,6 @@ def new_image():
 
     # read the word next to query ex" /new-image?query="car"
     word = request.args.get("query")
-
     # Construct the headers based on UNSPLASH documentation
     headers = {
         "Accept-Version": "v1",
