@@ -9,6 +9,8 @@ from flask_cors import CORS
 #pipenv install python-dotenv
 from dotenv import load_dotenv
 
+from mongo_client import insert_test_document
+
 app = Flask(__name__)
 CORS(app)
 
@@ -25,6 +27,7 @@ if not UNSPLASH_KEY:  # If key is empty
 # Enable debug mode
 app.config["DEBUG"] = DEBUG
 
+insert_test_document()
 
 @app.route("/new-image")
 def new_image():
